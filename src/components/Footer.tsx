@@ -1,3 +1,6 @@
+'use client';
+
+import Link from 'next/link';
 import { Instagram, Facebook, MessageCircle, Phone } from 'lucide-react';
 
 export default function Footer() {
@@ -20,10 +23,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6">Navigation</h4>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-[#FF6B35] transition-colors">Galerie</a></li>
-              <li><a href="#services" className="hover:text-[#FF6B35] transition-colors">Services</a></li>
-              <li><a href="#boutique" className="hover:text-[#FF6B35] transition-colors">Boutique</a></li>
-              <li><a href="#rendez-vous" className="hover:text-[#FF6B35] transition-colors">Rendez-vous</a></li>
+              <li><Link href="/#galerie" className="hover:text-[#FF6B35] transition-colors">Galerie</Link></li>
+              <li><Link href="/#services" className="hover:text-[#FF6B35] transition-colors">Services</Link></li>
+              <li><Link href="/#boutique" className="hover:text-[#FF6B35] transition-colors">Boutique</Link></li>
+              <li><Link href="/#rendez-vous" className="hover:text-[#FF6B35] transition-colors">Rendez-vous</Link></li>
             </ul>
           </div>
 
@@ -69,7 +72,7 @@ export default function Footer() {
             © 2026 Twins Productions. Tous droits réservés.
           </p>
           <div className="flex items-center space-x-6 text-gray-500 text-xs">
-            <a href="#" className="hover:text-white transition-colors">Espace Admin</a>
+            <Link href="/admin" className="hover:text-white transition-colors">Espace Admin</Link>
           </div>
         </div>
       </div>

@@ -1,9 +1,12 @@
+'use client';
+
 import { motion } from 'motion/react';
-import { Gift } from 'lucide-react';
+import { Gift, ArrowRight, Tag } from 'lucide-react';
+import { PROMOTIONS_DATA } from '../constants';
 
 export default function Promotions() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-[#F8F9FA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#1A1A2E] mb-4">Promotions en cours</h2>
@@ -16,7 +19,7 @@ export default function Promotions() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto p-12 rounded-3xl border-2 border-dashed border-gray-200 bg-gray-50/50 flex flex-col items-center justify-center text-center"
+          className="max-w-6xl mx-auto p-12 rounded-3xl border-2 border-dashed border-gray-200 bg-white flex flex-col items-center justify-center text-center"
         >
           <div className="w-16 h-16 bg-[#FF6B35]/10 rounded-full flex items-center justify-center mb-6">
             <Gift className="text-[#FF6B35]" size={32} />

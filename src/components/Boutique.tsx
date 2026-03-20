@@ -1,11 +1,15 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { ShoppingBag, ArrowRight } from 'lucide-react';
 
 const PRODUCTS = [
-  { id: 1, name: 'Sac Personnalisé', price: '5000 FCFA', image: 'https://picsum.photos/seed/bag/400/400' },
-  { id: 2, name: 'Tasse Sublimée', price: '3000 FCFA', image: 'https://picsum.photos/seed/mug/400/400' },
-  { id: 3, name: 'T-Shirt Sérigraphié', price: '4500 FCFA', image: 'https://picsum.photos/seed/shirt/400/400' },
-  { id: 4, name: 'Casquette Brodée', price: '3500 FCFA', image: 'https://picsum.photos/seed/cap/400/400' },
+  { id: 1, name: 'Sac Personnalisé', price: '5000 FCFA', image: 'https://images.unsplash.com/photo-1544816153-16ad4614ff28?q=80&w=1974&auto=format&fit=crop' },
+  { id: 2, name: 'Tasse Sublimée', price: '3000 FCFA', image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=2070&auto=format&fit=crop' },
+  { id: 3, name: 'T-Shirt Sérigraphié', price: '4500 FCFA', image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1974&auto=format&fit=crop' },
+  { id: 4, name: 'Casquette Brodée', price: '3500 FCFA', image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=2070&auto=format&fit=crop' },
+  { id: 5, name: 'Cadre Photo', price: '8000 FCFA', image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1974&auto=format&fit=crop' },
+  { id: 6, name: 'Agenda Personnalisé', price: '6000 FCFA', image: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=1974&auto=format&fit=crop' },
 ];
 
 export default function Boutique() {

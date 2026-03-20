@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, User, LogIn, LogOut } from 'lucide-react';
 import { auth } from '../firebase';
@@ -14,7 +15,7 @@ interface NavbarProps {
 export default function Navbar({ user }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -63,7 +64,7 @@ export default function Navbar({ user }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex flex-col items-center">
+          <Link href="/" className="flex flex-col items-start">
             <span className="text-2xl font-bold tracking-tighter text-white leading-none">TWINS</span>
             <span className="text-[10px] tracking-[0.3em] text-[#FF6B35] font-medium">PRODUCTION</span>
           </Link>
@@ -81,7 +82,7 @@ export default function Navbar({ user }: NavbarProps) {
             ))}
             {user?.role === 'admin' && (
               <Link
-                to="/admin"
+                href="/admin"
                 className="text-sm font-medium text-[#9B59B6] hover:text-[#FF6B35] transition-colors"
               >
                 Admin
@@ -140,7 +141,7 @@ export default function Navbar({ user }: NavbarProps) {
               ))}
               {user?.role === 'admin' && (
                 <Link
-                  to="/admin"
+                  href="/admin"
                   onClick={() => setIsOpen(false)}
                   className="block px-3 py-4 text-base font-medium text-[#9B59B6]"
                 >

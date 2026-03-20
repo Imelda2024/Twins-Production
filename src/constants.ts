@@ -59,3 +59,20 @@ export const GALLERY_CATEGORIES = [
   'Graphisme',
   'Boutique'
 ];
+
+export const PROMOTIONS_DATA = [
+  {
+    id: 'promo-1',
+    title: 'Offre Spéciale Studio',
+    description: '-20% sur toutes les séances studio ce mois-ci !',
+    discount: '20%',
+    active: true,
+  },
+  {
+    id: 'promo-2',
+    title: 'Pack Événement',
+    description: 'Vidéo offerte pour toute couverture de mariage réservée avant fin Mars.',
+    discount: 'Cadeau',
+    active: true,
+  }
+];

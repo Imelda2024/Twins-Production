@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Camera, Mountain, Calendar, PenTool, ShoppingBag, Printer, ArrowRight } from 'lucide-react';

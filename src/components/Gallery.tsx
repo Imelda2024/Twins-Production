@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { Maximize2 } from 'lucide-react';
 
@@ -7,11 +9,11 @@ export default function Gallery() {
     { title: 'Couverture Événementielle', class: 'col-span-1 row-span-2 bg-gradient-to-br from-[#9B59B6] to-[#FF6B35]' },
     { title: 'Événement', class: 'col-span-1 row-span-1 bg-gradient-to-br from-[#9B59B6] to-[#FF6B35]' },
     { title: 'Graphisme', class: 'col-span-1 row-span-1 bg-gradient-to-br from-[#9B59B6] to-[#FF6B35]' },
-    { title: 'Boutique', class: 'col-span-2 row-span-1 bg-gradient-to-br from-[#9B59B6] to-[#FF6B35]' },
+    { title: 'Boutique', class: 'col-span-3 row-span-1 bg-gradient-to-r from-[#9B59B6] to-[#FF6B35]' },
   ];
 
   return (
-    <section id="galerie" className="py-24 bg-[#F8F9FA]">
+    <section id="galerie" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#1A1A2E] mb-4">Notre Galerie</h2>
@@ -20,7 +22,7 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[800px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[800px] mb-12">
           {categories.map((cat, index) => (
             <motion.div
               key={index}
@@ -41,11 +43,15 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <button className="px-8 py-3 bg-[#FF6B35] text-white font-bold rounded-full hover:bg-[#FF6B35]/90 transition-all flex items-center space-x-2 mx-auto">
-            <Maximize2 size={18} />
+        <div className="flex justify-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-[#FF6B35] text-white font-bold rounded-full flex items-center space-x-2 shadow-lg shadow-[#FF6B35]/20"
+          >
+            <Maximize2 size={20} />
             <span>Voir toute la galerie</span>
-          </button>
+          </motion.button>
         </div>
       </div>
     </section>

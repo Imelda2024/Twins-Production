@@ -1,9 +1,11 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { THEME } from '../constants';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#1A1A2E]">
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#9B59B6]/20 blur-[120px] rounded-full" />
@@ -16,12 +18,12 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-[#FF6B35] text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
+          <span className="text-[#F1C40F] text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
             STUDIO • ÉVÉNEMENTS • GRAPHISME • BOUTIQUE
           </span>
           <h1 className="text-5xl md:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tighter">
             Donnez vie à vos <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] to-[#9B59B6]">
+            <span className="text-[#FF6B35]">
               idées créatives
             </span>
           </h1>
