@@ -26,8 +26,15 @@ export default function Navbar({ user }: NavbarProps) {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-    } catch (error) {
-      console.error('Login error:', error);
+    } catch (error: any) {
+      if (error.code === 'auth/popup-closed-by-user') {
+        // User closed the popup, no need to log as error
+        console.log('Connexion annulée par l\'utilisateur');
+      } else if (error.code === 'auth/cancelled-popup-request') {
+        // Multiple popup requests, ignore
+      } else {
+        console.error('Login error:', error);
+      }
     }
   };
 
