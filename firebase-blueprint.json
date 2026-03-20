@@ -1,0 +1,95 @@
+{
+  "entities": {
+    "Service": {
+      "title": "Service",
+      "description": "A service offered by Twins Productions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "icon": { "type": "string" },
+        "price": { "type": "number" }
+      },
+      "required": ["title", "description", "category"]
+    },
+    "GalleryItem": {
+      "title": "Gallery Item",
+      "description": "An item in the portfolio gallery",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "category": { "type": "string" },
+        "title": { "type": "string" }
+      },
+      "required": ["imageUrl", "category"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "A reservation for a service",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userPhone": { "type": "string" },
+        "serviceId": { "type": "string" },
+        "serviceTitle": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userName", "userEmail", "userPhone", "serviceId", "date", "status"]
+    },
+    "Promotion": {
+      "title": "Promotion",
+      "description": "A special offer or discount",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "discount": { "type": "string" },
+        "active": { "type": "boolean" }
+      },
+      "required": ["title", "description", "active"]
+    },
+    "User": {
+      "title": "User",
+      "description": "A user profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] }
+      },
+      "required": ["uid", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/services/{serviceId}": {
+      "schema": "Service",
+      "description": "Collection of services"
+    },
+    "/gallery/{itemId}": {
+      "schema": "GalleryItem",
+      "description": "Collection of gallery items"
+    },
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Collection of user bookings"
+    },
+    "/promotions/{promoId}": {
+      "schema": "Promotion",
+      "description": "Collection of active promotions"
+    },
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "Collection of user profiles"
+    }
+  }
+}
