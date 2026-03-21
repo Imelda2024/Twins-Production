@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Maximize2 } from 'lucide-react';
 
@@ -44,14 +45,16 @@ export default function Gallery() {
         </div>
 
         <div className="flex justify-center">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-[#FF6B35] text-white font-bold rounded-full flex items-center space-x-2 shadow-lg shadow-[#FF6B35]/20"
-          >
-            <Maximize2 size={20} />
-            <span>Voir toute la galerie</span>
-          </motion.button>
+          <Link href="/galerie">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-[#FF6B35] text-white font-bold rounded-full flex items-center space-x-2 shadow-lg shadow-[#FF6B35]/20 cursor-pointer"
+            >
+              <Maximize2 size={20} />
+              <span>Voir toute la galerie</span>
+            </motion.div>
+          </Link>
         </div>
       </div>
     </section>

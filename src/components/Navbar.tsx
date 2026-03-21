@@ -49,11 +49,11 @@ export default function Navbar({ user }: NavbarProps) {
 
   const navLinks = [
     { name: 'Accueil', path: '/' },
-    { name: 'Galerie', path: '/#galerie' },
-    { name: 'Services', path: '/#services' },
-    { name: 'Boutique', path: '/#boutique' },
-    { name: 'Rendez-vous', path: '/#rendez-vous' },
-    { name: 'Contact', path: '/#contact' },
+    { name: 'Galerie', path: '/galerie' },
+    { name: 'Services', path: '/services' },
+    { name: 'Boutique', path: '/boutique' },
+    { name: 'Rendez-vous', path: '/rendez-vous' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -72,13 +72,15 @@ export default function Navbar({ user }: NavbarProps) {
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.path}
-                className="text-sm font-medium hover:text-[#FF6B35] transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  pathname === link.path ? 'text-[#FF6B35]' : 'text-white hover:text-[#FF6B35]'
+                }`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             {user?.role === 'admin' && (
               <Link
@@ -130,14 +132,16 @@ export default function Navbar({ user }: NavbarProps) {
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.path}
                   onClick={() => setIsOpen(false)}
-                  className="block px-3 py-4 text-base font-medium hover:bg-white/5 hover:text-[#FF6B35] transition-all"
+                  className={`block px-3 py-4 text-base font-medium transition-all ${
+                    pathname === link.path ? 'bg-white/5 text-[#FF6B35]' : 'text-white hover:bg-white/5 hover:text-[#FF6B35]'
+                  }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               {user?.role === 'admin' && (
                 <Link

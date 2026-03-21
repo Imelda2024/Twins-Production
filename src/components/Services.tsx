@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Camera, Mountain, Calendar, PenTool, ShoppingBag, Printer, ArrowRight } from 'lucide-react';
@@ -21,6 +22,8 @@ export default function Services() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleServiceClick = (service: any) => {
+    if (service.category === 'Boutique') return; // Handled by Link
+    if (service.category === 'Design') return; // Handled by Link
     setSelectedService(service);
     setIsModalOpen(true);
   };
@@ -38,6 +41,17 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES_DATA.map((service, index) => {
             const Icon = iconMap[service.icon];
+            const isBoutique = service.category === 'Boutique';
+            const isDesign = service.category === 'Design';
+            const linkPath = isBoutique ? '/boutique' : isDesign ? '/contact' : null;
+
+            const ButtonContent = (
+              <div className="flex items-center space-x-2 text-[#FF6B35] font-bold text-sm hover:space-x-3 transition-all">
+                <span>{isBoutique ? 'Voir la boutique' : isDesign ? 'Nous contacter' : 'Réserver'}</span>
+                <ArrowRight size={16} />
+              </div>
+            );
+
             return (
               <motion.div
                 key={service.id}
@@ -54,13 +68,16 @@ export default function Services() {
                 <p className="text-gray-500 mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <button 
-                  onClick={() => handleServiceClick(service)}
-                  className="flex items-center space-x-2 text-[#FF6B35] font-bold text-sm hover:space-x-3 transition-all"
-                >
-                  <span>{service.category === 'Boutique' ? 'Voir la boutique' : service.category === 'Design' ? 'Nous contacter' : 'Réserver'}</span>
-                  <ArrowRight size={16} />
-                </button>
+                
+                {linkPath ? (
+                  <Link href={linkPath}>
+                    {ButtonContent}
+                  </Link>
+                ) : (
+                  <button onClick={() => handleServiceClick(service)}>
+                    {ButtonContent}
+                  </button>
+                )}
               </motion.div>
             );
           })}

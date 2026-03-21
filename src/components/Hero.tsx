@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { THEME } from '../constants';
 
@@ -33,22 +34,24 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.a
-              href="#galerie"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-[#FF6B35] text-white font-bold rounded-full shadow-lg shadow-[#FF6B35]/20 transition-all hover:bg-[#FF6B35]/90 w-full sm:w-auto"
-            >
-              Voir notre galerie
-            </motion.a>
-            <motion.a
-              href="#rendez-vous"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-transparent border-2 border-white/20 text-white font-bold rounded-full backdrop-blur-sm transition-all hover:bg-white/10 w-full sm:w-auto"
-            >
-              Prendre RDV
-            </motion.a>
+            <Link href="/galerie">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-[#FF6B35] text-white font-bold rounded-full shadow-lg shadow-[#FF6B35]/20 transition-all hover:bg-[#FF6B35]/90 w-full sm:w-auto cursor-pointer"
+              >
+                Voir notre galerie
+              </motion.div>
+            </Link>
+            <Link href="/rendez-vous">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-transparent border-2 border-white/20 text-white font-bold rounded-full backdrop-blur-sm transition-all hover:bg-white/10 w-full sm:w-auto cursor-pointer"
+              >
+                Prendre RDV
+              </motion.div>
+            </Link>
           </div>
         </motion.div>
       </div>
